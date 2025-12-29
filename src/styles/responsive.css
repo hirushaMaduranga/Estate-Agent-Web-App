@@ -1,0 +1,168 @@
+/* Responsive CSS Media Queries */
+
+/* Large screens (1024px and above) - Default layout */
+@media (min-width: 1024px) {
+  .search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .container {
+    max-width: 1280px;
+  }
+
+  .property-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .property-details > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  .favourites-sidebar {
+    width: 320px;
+  }
+}
+
+/* Tablets and below iPad landscape (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .container {
+    max-width: 768px;
+  }
+
+  .property-details {
+    display: block;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .favourites-sidebar {
+    width: 280px;
+  }
+}
+
+/* Small screens (below 768px) */
+@media (max-width: 767px) {
+  .search-results-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .container {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  header .text-3xl {
+    font-size: 1.5rem;
+  }
+
+  header button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .property-details {
+    display: block;
+  }
+
+  .property-details > div:nth-child(2) {
+    margin-top: 1.5rem;
+  }
+
+  .favourites-sidebar {
+    width: 100%;
+    right: 0;
+  }
+
+  .tab-content {
+    font-size: 0.875rem;
+  }
+
+  .tab-content img {
+    max-width: 100%;
+  }
+}
+
+/* Extra small screens (below 480px) */
+@media (max-width: 479px) {
+  .search-results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header .flex {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  header button {
+    width: 100%;
+  }
+
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .search-results-grid h3 {
+    font-size: 1rem;
+  }
+
+  .text-2xl {
+    font-size: 1.5rem !important;
+  }
+
+  .text-3xl {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Landscape mode for tablets */
+@media (max-height: 600px) and (orientation: landscape) {
+  .search-results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  header {
+    padding: 0.5rem 1rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  header,
+  .search-results-grid > :not(.active),
+  .favourites-sidebar {
+    display: none;
+  }
+
+  .property-details {
+    display: block;
+  }
+}
