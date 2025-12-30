@@ -10,6 +10,7 @@ export interface Property {
   images: string[];
   floorPlan: string;
   url: string;
+  listingType: 'sale' | 'rent';
   lat?: number;
   lng?: number;
   added: { month: string; day: number; year: number };

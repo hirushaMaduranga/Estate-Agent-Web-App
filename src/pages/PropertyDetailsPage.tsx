@@ -4,13 +4,14 @@ import { ImageGallery } from '../components/ImageGallery';
 import { TabPanel } from '../components/TabPanel';
 import { GoogleMapEmbed } from '../components/GoogleMapEmbed';
 import { useFavourites } from '../context/FavouritesContext';
+import { Property } from '../utils/filterProperties';
 import propertiesData from '../data/properties.json';
 
 export const PropertyDetailsPage: React.FC = () => {
   const { propertyId } = useParams<{ propertyId: string }>();
   const { isFavourite, addFavourite, removeFavourite } = useFavourites();
 
-  const property = propertiesData.properties.find((p) => p.id === propertyId);
+  const property = propertiesData.properties.find((p) => p.id === propertyId) as Property | undefined;
 
   if (!property) {
     return (

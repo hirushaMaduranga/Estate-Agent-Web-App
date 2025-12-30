@@ -9,11 +9,19 @@ export const SearchPage: React.FC = () => {
   const [filters, setFilters] = useState<FilterCriteria>({});
   const [draggedProperty, setDraggedProperty] = useState<Property | null>(null);
   const [showAdvanced, setShowAdvanced] = useState(false);
+  const [listingMode, setListingMode] = useState<'all' | 'sale' | 'rent'>('all');
   const { favourites, addFavourite, removeFavourite } = useFavourites();
 
   const filteredProperties = useMemo(() => {
-    return filterProperties(propertiesData.properties, filters);
-  }, [filters]);
+    let properties = filterProperties(propertiesData.properties as Property[], filters);
+    
+    // Apply listing mode filter
+    if (listingMode !== 'all') {
+      properties = properties.filter((prop) => prop.listingType === listingMode);
+    }
+    
+    return properties;
+  }, [filters, listingMode]);
 
   const handleSearch = (newFilters: FilterCriteria) => {
     setFilters(newFilters);
@@ -52,13 +60,34 @@ export const SearchPage: React.FC = () => {
               placeholder="e.g., House, Apartment, London"
               className="w-full px-4 py-3 rounded-lg md:w-96 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button className="px-8 py-3 font-semibold text-white transition bg-blue-600 rounded-lg hover:bg-blue-700">
+            <button
+              onClick={() => setListingMode('sale')}
+              className={`px-8 py-3 font-semibold text-white transition rounded-lg ${
+                listingMode === 'sale'
+                  ? 'bg-blue-800 ring-2 ring-white'
+                  : 'bg-blue-600 hover:bg-blue-700'
+              }`}
+            >
               For Sale
             </button>
-            <button className="px-8 py-3 font-semibold text-white transition bg-blue-600 rounded-lg hover:bg-blue-700">
+            <button
+              onClick={() => setListingMode('rent')}
+              className={`px-8 py-3 font-semibold text-white transition rounded-lg ${
+                listingMode === 'rent'
+                  ? 'bg-blue-800 ring-2 ring-white'
+                  : 'bg-blue-600 hover:bg-blue-700'
+              }`}
+            >
               To Rent
             </button>
-            <button className="px-8 py-3 font-semibold text-white transition bg-blue-600 rounded-lg hover:bg-blue-700">
+            <button
+              onClick={() => setListingMode('all')}
+              className={`px-8 py-3 font-semibold text-white transition rounded-lg ${
+                listingMode === 'all'
+                  ? 'bg-blue-800 ring-2 ring-white'
+                  : 'bg-blue-600 hover:bg-blue-700'
+              }`}
+            >
               Show All
             </button>
           </div>

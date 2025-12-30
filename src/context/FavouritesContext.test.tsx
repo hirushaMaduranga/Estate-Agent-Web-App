@@ -13,6 +13,7 @@ const mockProperty1: Property = {
   picture: 'https://example.com/pic1.jpg',
   images: [],
   floorPlan: 'https://example.com/floor1.jpg',
+  listingType: 'sale',
   url: 'properties/test1.html',
   added: { month: 'January', day: 1, year: 2023 }
 };
@@ -28,6 +29,7 @@ const mockProperty2: Property = {
   picture: 'https://example.com/pic2.jpg',
   images: [],
   floorPlan: 'https://example.com/floor2.jpg',
+  listingType: 'rent',
   url: 'properties/test2.html',
   added: { month: 'February', day: 15, year: 2023 }
 };

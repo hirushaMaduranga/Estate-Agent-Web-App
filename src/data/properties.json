@@ -20,6 +20,7 @@
         "https://images.unsplash.com/photo-1618219908412-c288b107b311?w=1200&h=800&fit=crop"
       ],
       "floorPlan": "/images/floorplans/prop1.png",
+      "listingType": "sale",
       "url": "properties/prop1.html",
       "added": {
         "month": "October",
@@ -47,6 +48,7 @@
         "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=1200&h=800&fit=crop"
       ],
       "floorPlan": "/images/floorplans/prop2.png",
+      "listingType": "rent",
       "url": "properties/prop2.html",
       "added": {
         "month": "September",
@@ -74,6 +76,7 @@
         "https://images.unsplash.com/photo-1618219908412-c288b107b311?w=1200&h=800&fit=crop"
       ],
       "floorPlan": "/images/floorplans/prop3.png",
+      "listingType": "sale",
       "url": "properties/prop3.html",
       "added": {
         "month": "November",
@@ -101,6 +104,7 @@
         "https://images.unsplash.com/photo-1618219908412-c288b107b311?w=1200&h=800&fit=crop"
       ],
       "floorPlan": "/images/floorplans/prop4.png",
+      "listingType": "rent",
       "url": "properties/prop4.html",
       "added": {
         "month": "December",
@@ -128,6 +132,7 @@
         "https://images.unsplash.com/photo-1618219908412-c288b107b311?w=1200&h=800&fit=crop"
       ],
       "floorPlan": "/images/floorplans/prop5.png",
+      "listingType": "sale",
       "url": "properties/prop5.html",
       "added": {
         "month": "January",
@@ -155,6 +160,7 @@
         "https://images.unsplash.com/photo-1618219908412-c288b107b311?w=1200&h=800&fit=crop"
       ],
       "floorPlan": "/images/floorplans/prop6.png",
+      "listingType": "rent",
       "url": "properties/prop6.html",
       "added": {
         "month": "February",
@@ -182,6 +188,7 @@
         "https://images.unsplash.com/photo-1618219908412-c288b107b311?w=1200&h=800&fit=crop"
       ],
       "floorPlan": "/images/floorplans/prop7.png",
+      "listingType": "sale",
       "url": "properties/prop7.html",
       "added": {
         "month": "March",

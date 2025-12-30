@@ -16,6 +16,7 @@ const mockProperty = {
   picture: 'https://example.com/pic.jpg',
   images: [],
   floorPlan: 'https://example.com/floor.jpg',
+  listingType: 'sale',
   url: 'properties/test1.html',
   added: { month: 'January', day: 1, year: 2023 }
 };
