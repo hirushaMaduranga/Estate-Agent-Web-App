@@ -63,11 +63,15 @@ export const PropertyDetailsPage: React.FC = () => {
       label: 'Floor Plan',
       content: (
         <div className="flex justify-center">
-          <img
-            src={property.floorPlan}
-            alt="Floor Plan"
-            className="max-w-full h-auto rounded border border-gray-300"
-          />
+          {property.floorPlan ? (
+            <img
+              src={property.floorPlan}
+              alt={`Floor plan of ${property.location}`}
+              className="max-w-full h-auto rounded border border-gray-300"
+            />
+          ) : (
+            <p className="text-gray-600">Floor plan not available</p>
+          )}
         </div>
       ),
     },

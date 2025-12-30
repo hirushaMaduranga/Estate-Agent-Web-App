@@ -8,7 +8,7 @@
       "tenure": "Freehold",
       "description": "Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior.",
       "location": "Petts Wood Road, Petts Wood, Orpington BR5",
-      "picture": "https://images.unsplash.com/photo-1570129477492-45a003537e1f?w=800&h=600&fit=crop",
+      "picture": "/images/properties/prop1.jpg",
       "images": [
         "https://images.unsplash.com/photo-1570129477492-45a003537e1f?w=1200&h=800&fit=crop",
         "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=800&fit=crop",
@@ -19,7 +19,7 @@
         "https://images.unsplash.com/photo-1574959675285-cddf3b5e2179?w=1200&h=800&fit=crop",
         "https://images.unsplash.com/photo-1618219908412-c288b107b311?w=1200&h=800&fit=crop"
       ],
-      "floorPlan": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=800&fit=crop",
+      "floorPlan": "/images/floorplans/prop1.png",
       "url": "properties/prop1.html",
       "added": {
         "month": "October",
@@ -35,7 +35,7 @@
       "tenure": "Freehold",
       "description": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher and a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite with shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms. This apartment being only five years old, is still under a 10 year building guarantee.",
       "location": "Crofton Road Orpington BR6",
-      "picture": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
+      "picture": "/images/properties/prop2.jpg",
       "images": [
         "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&h=800&fit=crop",
         "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=800&fit=crop",
@@ -46,7 +46,7 @@
         "https://images.unsplash.com/photo-1618219908412-c288b107b311?w=1200&h=800&fit=crop",
         "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=1200&h=800&fit=crop"
       ],
-      "floorPlan": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=800&fit=crop",
+      "floorPlan": "/images/floorplans/prop2.png",
       "url": "properties/prop2.html",
       "added": {
         "month": "September",
@@ -62,7 +62,7 @@
       "tenure": "Leasehold",
       "description": "Stunning four-bedroom Victorian terraced house in the heart of Notting Hill. This impressive property features high ceilings, original period features including fireplaces and ornate cornicing throughout. The spacious open-plan kitchen/diner overlooks a mature south-facing garden with patio area. Master bedroom suite with ensuite, three additional double bedrooms, and a contemporary family bathroom complete this exceptional home.",
       "location": "Pembridge Road London NW1",
-      "picture": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
+      "picture": "/images/properties/prop3.jpg",
       "images": [
         "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&h=800&fit=crop",
         "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=800&fit=crop",
@@ -73,7 +73,7 @@
         "https://images.unsplash.com/photo-1574959675285-cddf3b5e2179?w=1200&h=800&fit=crop",
         "https://images.unsplash.com/photo-1618219908412-c288b107b311?w=1200&h=800&fit=crop"
       ],
-      "floorPlan": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=800&fit=crop",
+      "floorPlan": "/images/floorplans/prop3.png",
       "url": "properties/prop3.html",
       "added": {
         "month": "November",
@@ -89,7 +89,7 @@
       "tenure": "Freehold",
       "description": "Contemporary one-bedroom apartment in a modern riverside development. This stylish flat features floor-to-ceiling windows with stunning water views, an open-plan living/kitchen area with integrated appliances, luxury bathroom with rain shower, and access to residents gym and 24-hour concierge service.",
       "location": "The Quays London SE1",
-      "picture": "https://images.unsplash.com/photo-1494317228058-91cb2581cdd1?w=800&h=600&fit=crop",
+      "picture": "/images/properties/prop4.jpg",
       "images": [
         "https://images.unsplash.com/photo-1494317228058-91cb2581cdd1?w=1200&h=800&fit=crop",
         "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=800&fit=crop",
@@ -100,7 +100,7 @@
         "https://images.unsplash.com/photo-1574959675285-cddf3b5e2179?w=1200&h=800&fit=crop",
         "https://images.unsplash.com/photo-1618219908412-c288b107b311?w=1200&h=800&fit=crop"
       ],
-      "floorPlan": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=800&fit=crop",
+      "floorPlan": "/images/floorplans/prop4.png",
       "url": "properties/prop4.html",
       "added": {
         "month": "December",
@@ -116,7 +116,7 @@
       "tenure": "Freehold",
       "description": "Magnificent five-bedroom detached period mansion set on 2.5 acres of beautifully landscaped grounds. This grand property features a sweeping driveway, formal entrance hall, double-height reception rooms with original oak flooring, country kitchen with Aga, library, and five spacious bedrooms. The grounds include a detached coach house, tennis court, and extensive gardens bordered by mature woodland.",
       "location": "The Lane Guildford GU1",
-      "picture": "https://images.unsplash.com/photo-1475855581690-80accba3c56d?w=800&h=600&fit=crop",
+      "picture": "/images/properties/prop5.jpg",
       "images": [
         "https://images.unsplash.com/photo-1475855581690-80accba3c56d?w=1200&h=800&fit=crop",
         "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=800&fit=crop",
@@ -127,7 +127,7 @@
         "https://images.unsplash.com/photo-1574959675285-cddf3b5e2179?w=1200&h=800&fit=crop",
         "https://images.unsplash.com/photo-1618219908412-c288b107b311?w=1200&h=800&fit=crop"
       ],
-      "floorPlan": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=800&fit=crop",
+      "floorPlan": "/images/floorplans/prop5.png",
       "url": "properties/prop5.html",
       "added": {
         "month": "January",
@@ -143,7 +143,7 @@
       "tenure": "Leasehold",
       "description": "Spacious three-bedroom penthouse apartment with panoramic city views from the private terrace. Features include a luxury fitted kitchen, three ensuite bedrooms, media room, wine fridge, and access to an exclusive rooftop garden. Located in a prestigious development with concierge, gym facilities, and secure parking.",
       "location": "Park Avenue Manchester M15",
-      "picture": "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=800&h=600&fit=crop",
+      "picture": "/images/properties/prop6.jpg",
       "images": [
         "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=1200&h=800&fit=crop",
         "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=800&fit=crop",
@@ -154,7 +154,7 @@
         "https://images.unsplash.com/photo-1574959675285-cddf3b5e2179?w=1200&h=800&fit=crop",
         "https://images.unsplash.com/photo-1618219908412-c288b107b311?w=1200&h=800&fit=crop"
       ],
-      "floorPlan": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=800&fit=crop",
+      "floorPlan": "/images/floorplans/prop6.png",
       "url": "properties/prop6.html",
       "added": {
         "month": "February",
@@ -170,7 +170,7 @@
       "tenure": "Freehold",
       "description": "Charming two-bedroom cottage with character features in a desirable village location. Recently refurbished with new kitchen and bathroom, the property benefits from exposed beams, window seats, and a cosy fireplace. The cottage features a fully enclosed garden with patio area, perfect for entertaining. Close to schools, shops, and excellent transport links.",
       "location": "The Green Cambridge CB1",
-      "picture": "https://images.unsplash.com/photo-1516320291840-2e0a9f2a3e6f?w=800&h=600&fit=crop",
+      "picture": "/images/properties/prop7.jpg",
       "images": [
         "https://images.unsplash.com/photo-1516320291840-2e0a9f2a3e6f?w=1200&h=800&fit=crop",
         "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=800&fit=crop",
@@ -181,7 +181,7 @@
         "https://images.unsplash.com/photo-1574959675285-cddf3b5e2179?w=1200&h=800&fit=crop",
         "https://images.unsplash.com/photo-1618219908412-c288b107b311?w=1200&h=800&fit=crop"
       ],
-      "floorPlan": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=800&fit=crop",
+      "floorPlan": "/images/floorplans/prop7.png",
       "url": "properties/prop7.html",
       "added": {
         "month": "March",

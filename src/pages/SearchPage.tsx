@@ -38,27 +38,27 @@ export const SearchPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-slate-50">
       {/* Hero Section */}
-      <div className="hero-section relative bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&q=80')" }}>
+      <div className="relative bg-center bg-cover hero-section hero-bg">
         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-        <div className="relative z-10 container mx-auto px-4 py-20 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="container relative z-10 px-4 py-20 mx-auto text-center">
+          <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">
             Estate Agent Property Finder - Your<br />Gateway to Homes
           </h1>
-          <div className="flex flex-col md:flex-row gap-4 justify-center items-center max-w-3xl mx-auto">
+          <div className="flex flex-col items-center justify-center max-w-3xl gap-4 mx-auto md:flex-row">
             <input
               type="text"
               placeholder="e.g., House, Apartment, London"
-              className="px-4 py-3 rounded-lg w-full md:w-96 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 rounded-lg md:w-96 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+            <button className="px-8 py-3 font-semibold text-white transition bg-blue-600 rounded-lg hover:bg-blue-700">
               For Sale
             </button>
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+            <button className="px-8 py-3 font-semibold text-white transition bg-blue-600 rounded-lg hover:bg-blue-700">
               To Rent
             </button>
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+            <button className="px-8 py-3 font-semibold text-white transition bg-blue-600 rounded-lg hover:bg-blue-700">
               Show All
             </button>
           </div>
@@ -66,17 +66,17 @@ export const SearchPage: React.FC = () => {
       </div>
 
       {/* Advanced Search Toggle */}
-      <div className="bg-blue-600 py-3 text-center">
+      <div className="py-3 text-center bg-blue-600">
         <button
           onClick={() => setShowAdvanced(!showAdvanced)}
-          className="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition font-semibold"
+          className="px-6 py-2 font-semibold text-white transition bg-green-500 rounded hover:bg-green-600"
         >
           {showAdvanced ? 'Hide Advanced Search' : 'Show Advanced Search'}
         </button>
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-8">
+      <div className="container px-4 py-8 mx-auto">
         {/* Advanced Search Form */}
         {showAdvanced && (
           <div className="mb-8">
@@ -84,15 +84,8 @@ export const SearchPage: React.FC = () => {
           </div>
         )}
 
-        {/* Results Summary */}
-        <div className="mb-6">
-          <p className="text-gray-700 font-semibold text-lg">
-            Found <span className="text-blue-600">{filteredProperties.length}</span> properties
-          </p>
-        </div>
-
         {/* Property Grid */}
-        <div className="search-results-grid mb-12">
+        <div className="mb-12 search-results-grid">
           {filteredProperties.length > 0 ? (
             filteredProperties.map((property) => (
               <PropertyCard
@@ -103,8 +96,8 @@ export const SearchPage: React.FC = () => {
               />
             ))
           ) : (
-            <div className="col-span-full text-center py-12">
-              <p className="text-gray-600 text-lg">No properties found matching your criteria</p>
+            <div className="py-12 text-center col-span-full">
+              <p className="text-lg text-gray-600">No properties found matching your criteria</p>
               <p className="text-gray-500">Try adjusting your search filters</p>
             </div>
           )}
@@ -112,37 +105,37 @@ export const SearchPage: React.FC = () => {
 
         {/* Favorites Section */}
         <div className="mt-16 mb-12">
-          <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Favorites</h2>
+          <h2 className="mb-8 text-3xl font-bold text-center text-gray-800">Favorites</h2>
           <div
             onDragOver={handleFavoritesDragOver}
             onDrop={handleFavoritesDrop}
             className="min-h-[200px] border-4 border-dashed border-gray-300 rounded-lg bg-white p-8 transition-colors hover:border-blue-400 hover:bg-blue-50"
           >
             {favourites.length === 0 ? (
-              <div className="text-center py-12">
-                <p className="text-gray-600 text-lg mb-2">No favorites added yet!</p>
+              <div className="py-12 text-center">
+                <p className="mb-2 text-lg text-gray-600">No favorites added yet!</p>
                 <p className="text-gray-500">Drag properties here or click "Add to Favorites" button</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {favourites.map((property) => (
                   <div
                     key={property.id}
-                    className="bg-cyan-100 rounded-lg overflow-hidden shadow hover:shadow-lg transition relative"
+                    className="relative overflow-hidden transition rounded-lg shadow bg-cyan-100 hover:shadow-lg"
                   >
                     <img
                       src={property.picture}
                       alt={property.location}
-                      className="w-full h-40 object-cover"
+                      className="object-cover w-full h-40"
                     />
                     <div className="p-4">
-                      <h3 className="font-semibold text-gray-800 mb-2 text-sm">{property.location}</h3>
-                      <p className="text-gray-700 font-bold mb-1">Price: ${property.price.toLocaleString()}</p>
-                      <p className="text-gray-600 text-sm mb-1">Type: {property.type}</p>
-                      <p className="text-gray-600 text-sm">Bedrooms: {property.bedrooms}</p>
+                      <h3 className="mb-2 text-sm font-semibold text-gray-800">{property.location}</h3>
+                      <p className="mb-1 font-bold text-gray-700">Price: ${property.price.toLocaleString()}</p>
+                      <p className="mb-1 text-sm text-gray-600">Type: {property.type}</p>
+                      <p className="text-sm text-gray-600">Bedrooms: {property.bedrooms}</p>
                       <button
                         onClick={() => removeFavourite(property.id)}
-                        className="mt-3 w-full bg-red-500 text-white py-2 rounded hover:bg-red-600 transition text-sm font-semibold"
+                        className="w-full py-2 mt-3 text-sm font-semibold text-white transition bg-red-500 rounded hover:bg-red-600"
                       >
                         Remove
                       </button>

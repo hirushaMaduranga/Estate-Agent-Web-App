@@ -35,15 +35,17 @@ export const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md mb-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+    <form onSubmit={handleSubmit} className="p-6 mb-8 bg-white rounded-lg shadow-md">
+      <div className="grid grid-cols-1 gap-4 mb-4 md:grid-cols-2 lg:grid-cols-3">
         {/* Property Type */}
         <div>
-          <label className="block text-sm font-semibold mb-2 text-gray-700">Property Type</label>
+          <label htmlFor="propertyType" className="block mb-2 text-sm font-semibold text-gray-700">Property Type</label>
           <select
+            id="propertyType"
             value={type}
             onChange={(e) => setType(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label="Property type"
           >
             <option value="Any">Any</option>
             <option value="House">House</option>
@@ -53,7 +55,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
 
         {/* Min Price */}
         <div>
-          <label className="block text-sm font-semibold mb-2 text-gray-700">Min Price (£)</label>
+          <label className="block mb-2 text-sm font-semibold text-gray-700">Min Price (£)</label>
           <input
             type="number"
             value={minPrice}
@@ -65,7 +67,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
 
         {/* Max Price */}
         <div>
-          <label className="block text-sm font-semibold mb-2 text-gray-700">Max Price (£)</label>
+          <label className="block mb-2 text-sm font-semibold text-gray-700">Max Price (£)</label>
           <input
             type="number"
             value={maxPrice}
@@ -77,11 +79,13 @@ export const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
 
         {/* Min Bedrooms */}
         <div>
-          <label className="block text-sm font-semibold mb-2 text-gray-700">Min Bedrooms</label>
+          <label htmlFor="minBeds" className="block mb-2 text-sm font-semibold text-gray-700">Min Bedrooms</label>
           <select
+            id="minBeds"
             value={minBeds}
             onChange={(e) => setMinBeds(e.target.value === '' ? '' : Number(e.target.value))}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label="Minimum bedrooms"
           >
             <option value="">Any</option>
             <option value="1">1</option>
@@ -94,11 +98,13 @@ export const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
 
         {/* Max Bedrooms */}
         <div>
-          <label className="block text-sm font-semibold mb-2 text-gray-700">Max Bedrooms</label>
+          <label htmlFor="maxBeds" className="block mb-2 text-sm font-semibold text-gray-700">Max Bedrooms</label>
           <select
+            id="maxBeds"
             value={maxBeds}
             onChange={(e) => setMaxBeds(e.target.value === '' ? '' : Number(e.target.value))}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label="Maximum bedrooms"
           >
             <option value="">Any</option>
             <option value="1">1</option>
@@ -111,40 +117,49 @@ export const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
 
         {/* Date Added After */}
         <div>
-          <label className="block text-sm font-semibold mb-2 text-gray-700">Added After</label>
+          <label htmlFor="dateAfter" className="block mb-2 text-sm font-semibold text-gray-700">Added After</label>
           <input
+            id="dateAfter"
             type="date"
             value={dateAfter}
             onChange={(e) => setDateAfter(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label="Added after date"
+            placeholder="Select start date"
           />
         </div>
 
         {/* Date Added Between - Start */}
         <div>
-          <label className="block text-sm font-semibold mb-2 text-gray-700">Added Between (Start)</label>
+          <label htmlFor="dateBetweenStart" className="block mb-2 text-sm font-semibold text-gray-700">Added Between (Start)</label>
           <input
+            id="dateBetweenStart"
             type="date"
             value={dateBetweenStart}
             onChange={(e) => setDateBetweenStart(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label="Added between start date"
+            placeholder="Select start date"
           />
         </div>
 
         {/* Date Added Between - End */}
         <div>
-          <label className="block text-sm font-semibold mb-2 text-gray-700">Added Between (End)</label>
+          <label htmlFor="dateBetweenEnd" className="block mb-2 text-sm font-semibold text-gray-700">Added Between (End)</label>
           <input
+            id="dateBetweenEnd"
             type="date"
             value={dateBetweenEnd}
             onChange={(e) => setDateBetweenEnd(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label="Added between end date"
+            placeholder="Select end date"
           />
         </div>
 
         {/* Postcode Area */}
         <div>
-          <label className="block text-sm font-semibold mb-2 text-gray-700">Postcode Area (e.g., BR5, NW1)</label>
+          <label className="block mb-2 text-sm font-semibold text-gray-700">Postcode Area (e.g., BR5, NW1)</label>
           <input
             type="text"
             value={postcodeArea}
@@ -158,7 +173,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
 
       <button
         type="submit"
-        className="w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded hover:bg-indigo-700 transition"
+        className="w-full px-4 py-2 font-semibold text-white transition bg-indigo-600 rounded hover:bg-indigo-700"
       >
         Search Properties
       </button>

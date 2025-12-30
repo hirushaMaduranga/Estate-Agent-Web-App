@@ -44,12 +44,21 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.map-frame {
+  border: 0;
+  border-radius: 0.5rem;
+}
+
 /* Hero Section */
 .hero-section {
   min-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.hero-bg {
+  background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&q=80');
 }
 
 @media (max-width: 768px) {
