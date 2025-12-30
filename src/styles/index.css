@@ -43,3 +43,21 @@ body {
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
+
+/* Hero Section */
+.hero-section {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 300px;
+  }
+  
+  .hero-section h1 {
+    font-size: 1.75rem !important;
+  }
+}

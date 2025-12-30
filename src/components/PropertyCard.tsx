@@ -27,35 +27,34 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
   };
 
   return (
-    <Link
-      to={`/property/${property.id}`}
+    <div
       draggable={draggable}
       onDragStart={onDragStart ? (e) => onDragStart(e, property) : undefined}
-      className="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition cursor-pointer"
+      className="bg-cyan-100 rounded-lg overflow-hidden shadow hover:shadow-xl transition cursor-move relative"
     >
-      <div className="relative">
-        <img
-          src={property.picture}
-          alt={property.location}
-          className="w-full h-48 object-cover"
-        />
+      <Link to={`/property/${property.id}`} className="block">
+        <div className="relative">
+          <img
+            src={property.picture}
+            alt={property.location}
+            className="w-full h-56 object-cover"
+          />
+        </div>
+        <div className="p-4">
+          <h3 className="text-base font-semibold text-gray-800 mb-3 text-center">{property.location}</h3>
+          <p className="text-gray-700 font-bold mb-2">Price: ${property.price.toLocaleString()}</p>
+          <p className="text-gray-600 text-sm mb-1">Type: {property.type}</p>
+          <p className="text-gray-600 text-sm mb-3">Bedrooms: {property.bedrooms}</p>
+        </div>
+      </Link>
+      <div className="px-4 pb-4">
         <button
           onClick={handleFavouriteClick}
-          className="absolute top-3 right-3 bg-white rounded-full p-2 hover:bg-gray-100 transition"
-          title={favourite ? 'Remove from favourites' : 'Add to favourites'}
+          className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition font-semibold text-sm"
         >
-          <span className="text-xl">{favourite ? '❤️' : '🤍'}</span>
+          {favourite ? 'Remove from Favorites' : 'Add to Favorites'}
         </button>
       </div>
-      <div className="p-4">
-        <h3 className="text-lg font-semibold text-gray-800 mb-2">{property.location}</h3>
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-2xl font-bold text-indigo-600">£{property.price.toLocaleString()}</span>
-          <span className="bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded">{property.type}</span>
-        </div>
-        <p className="text-gray-600 text-sm mb-3">{property.bedrooms} bedrooms • {property.tenure}</p>
-        <p className="text-gray-700 text-sm line-clamp-3">{property.description}</p>
-      </div>
-    </Link>
+    </div>
   );
 };
