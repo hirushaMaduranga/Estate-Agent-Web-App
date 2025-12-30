@@ -3,11 +3,14 @@ import { SearchForm } from '../components/SearchForm';
 import { PropertyCard } from '../components/PropertyCard';
 import { FavouritesSidebar } from '../components/FavouritesSidebar';
 import { filterProperties, FilterCriteria, Property } from '../utils/filterProperties';
+import { useFavourites } from '../context/FavouritesContext';
 import propertiesData from '../data/properties.json';
 
 export const SearchPage: React.FC = () => {
   const [filters, setFilters] = useState<FilterCriteria>({});
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [draggedProperty, setDraggedProperty] = useState<Property | null>(null);
+  const { addFavourite } = useFavourites();
 
   const filteredProperties = useMemo(() => {
     return filterProperties(propertiesData.properties, filters);
@@ -17,8 +20,8 @@ export const SearchPage: React.FC = () => {
     setFilters(newFilters);
   };
 
-  const handleDragStart = (_e: React.DragEvent, _property: Property) => {
-    // Drag functionality for adding to favourites via sidebar
+  const handleDragStart = (_e: React.DragEvent, property: Property) => {
+    setDraggedProperty(property);
   };
 
   const handleDragOver = (e: React.DragEvent) => {
@@ -28,7 +31,10 @@ export const SearchPage: React.FC = () => {
 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
-    // Favourites are added via the heart button or drag to sidebar
+    if (draggedProperty) {
+      addFavourite(draggedProperty);
+      setDraggedProperty(null);
+    }
   };
 
   return (

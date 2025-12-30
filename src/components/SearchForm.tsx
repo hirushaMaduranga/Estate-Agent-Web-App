@@ -12,6 +12,8 @@ export const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
   const [minBeds, setMinBeds] = useState<number | ''>('');
   const [maxBeds, setMaxBeds] = useState<number | ''>('');
   const [dateAfter, setDateAfter] = useState<string>('');
+  const [dateBetweenStart, setDateBetweenStart] = useState<string>('');
+  const [dateBetweenEnd, setDateBetweenEnd] = useState<string>('');
   const [postcodeArea, setPostcodeArea] = useState<string>('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -24,6 +26,8 @@ export const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
       minBeds: minBeds !== '' ? Number(minBeds) : null,
       maxBeds: maxBeds !== '' ? Number(maxBeds) : null,
       dateAfter: dateAfter ? new Date(dateAfter) : null,
+      dateBetweenStart: dateBetweenStart ? new Date(dateBetweenStart) : null,
+      dateBetweenEnd: dateBetweenEnd ? new Date(dateBetweenEnd) : null,
       postcodeArea: postcodeArea || null,
     };
 
@@ -105,13 +109,35 @@ export const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
           </select>
         </div>
 
-        {/* Date Added */}
+        {/* Date Added After */}
         <div>
           <label className="block text-sm font-semibold mb-2 text-gray-700">Added After</label>
           <input
             type="date"
             value={dateAfter}
             onChange={(e) => setDateAfter(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        {/* Date Added Between - Start */}
+        <div>
+          <label className="block text-sm font-semibold mb-2 text-gray-700">Added Between (Start)</label>
+          <input
+            type="date"
+            value={dateBetweenStart}
+            onChange={(e) => setDateBetweenStart(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        {/* Date Added Between - End */}
+        <div>
+          <label className="block text-sm font-semibold mb-2 text-gray-700">Added Between (End)</label>
+          <input
+            type="date"
+            value={dateBetweenEnd}
+            onChange={(e) => setDateBetweenEnd(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>

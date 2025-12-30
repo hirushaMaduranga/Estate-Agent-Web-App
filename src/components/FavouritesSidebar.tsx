@@ -16,6 +16,22 @@ export const FavouritesSidebar: React.FC<FavouritesSidebarProps> = ({
 }) => {
   const { favourites, removeFavourite, clearFavourites } = useFavourites();
 
+  const handleDragStart = (e: React.DragEvent, propertyId: string) => {
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('propertyId', propertyId);
+  };
+
+  const handleDragEnd = (e: React.DragEvent, propertyId: string) => {
+    // If dragged outside sidebar (to the left), remove from favourites
+    const sidebar = document.querySelector('.favourites-sidebar');
+    if (sidebar) {
+      const rect = sidebar.getBoundingClientRect();
+      if (e.clientX < rect.left) {
+        removeFavourite(propertyId);
+      }
+    }
+  };
+
   return (
     <>
       {/* Sidebar */}
@@ -47,7 +63,10 @@ export const FavouritesSidebar: React.FC<FavouritesSidebarProps> = ({
               {favourites.map((property) => (
                 <div
                   key={property.id}
-                  className="bg-gray-50 p-3 rounded border border-gray-200 flex justify-between items-start"
+                  draggable
+                  onDragStart={(e) => handleDragStart(e, property.id)}
+                  onDragEnd={(e) => handleDragEnd(e, property.id)}
+                  className="bg-gray-50 p-3 rounded border border-gray-200 flex justify-between items-start cursor-move hover:bg-gray-100 transition"
                 >
                   <div className="flex-1">
                     <h3 className="font-semibold text-sm text-gray-800">{property.location}</h3>
