@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ImageGallery } from '../components/ImageGallery';
 import { TabPanel } from '../components/TabPanel';
+import { GoogleMapEmbed } from '../components/GoogleMapEmbed';
 import { useFavourites } from '../context/FavouritesContext';
 import propertiesData from '../data/properties.json';
 
@@ -36,8 +37,6 @@ export const PropertyDetailsPage: React.FC = () => {
       addFavourite(property);
     }
   };
-
-  const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTVgKWXB1zymZE1KaEw-ZguE&q=${encodeURIComponent(property.location)}`;
 
   const tabs = [
     {
@@ -77,14 +76,7 @@ export const PropertyDetailsPage: React.FC = () => {
       content: (
         <div className="space-y-4">
           <p className="text-gray-700 mb-4">{property.location}</p>
-          <iframe
-            width="100%"
-            height="400"
-            style={{ border: 0, borderRadius: '0.5rem' }}
-            loading="lazy"
-            allowFullScreen
-            src={googleMapsUrl}
-          ></iframe>
+          <GoogleMapEmbed query={property.location} height={400} />
         </div>
       ),
     },

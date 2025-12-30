@@ -10,6 +10,8 @@ export interface Property {
   images: string[];
   floorPlan: string;
   url: string;
+  lat?: number;
+  lng?: number;
   added: { month: string; day: number; year: number };
 }
 

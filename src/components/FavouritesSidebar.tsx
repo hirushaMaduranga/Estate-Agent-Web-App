@@ -42,11 +42,11 @@ export const FavouritesSidebar: React.FC<FavouritesSidebarProps> = ({
         onDragOver={onDragOver}
         onDrop={onDrop}
       >
-        <div className="p-4 border-b flex justify-between items-center">
+        <div className="flex items-center justify-between p-4 border-b">
           <h2 className="text-xl font-bold">Favourites ({favourites.length})</h2>
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 text-2xl"
+            className="text-2xl text-gray-500 hover:text-gray-700"
           >
             ✕
           </button>
@@ -66,16 +66,16 @@ export const FavouritesSidebar: React.FC<FavouritesSidebarProps> = ({
                   draggable
                   onDragStart={(e) => handleDragStart(e, property.id)}
                   onDragEnd={(e) => handleDragEnd(e, property.id)}
-                  className="bg-gray-50 p-3 rounded border border-gray-200 flex justify-between items-start cursor-move hover:bg-gray-100 transition"
+                  className="flex items-start justify-between p-3 transition border border-gray-200 rounded cursor-move bg-gray-50 hover:bg-gray-100"
                 >
                   <div className="flex-1">
-                    <h3 className="font-semibold text-sm text-gray-800">{property.location}</h3>
-                    <p className="text-indigo-600 font-bold">£{property.price.toLocaleString()}</p>
+                    <h3 className="text-sm font-semibold text-gray-800">{property.location}</h3>
+                    <p className="font-bold text-indigo-600">£{property.price.toLocaleString()}</p>
                     <p className="text-xs text-gray-600">{property.bedrooms} beds • {property.type}</p>
                   </div>
                   <button
                     onClick={() => removeFavourite(property.id)}
-                    className="text-red-500 hover:text-red-700 ml-2 flex-shrink-0"
+                    className="flex-shrink-0 ml-2 text-red-500 hover:text-red-700"
                     title="Remove from favourites"
                   >
                     ✕
@@ -87,11 +87,11 @@ export const FavouritesSidebar: React.FC<FavouritesSidebarProps> = ({
         </div>
 
         {/* Footer Buttons */}
-        <div className="absolute bottom-0 left-0 right-0 bg-white border-t p-4 space-y-2">
+        <div className="absolute bottom-0 left-0 right-0 p-4 space-y-2 bg-white border-t">
           {favourites.length > 0 && (
             <button
               onClick={clearFavourites}
-              className="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600 transition text-sm font-semibold"
+              className="w-full py-2 text-sm font-semibold text-white transition bg-red-500 rounded hover:bg-red-600"
             >
               Clear All
             </button>
@@ -102,7 +102,7 @@ export const FavouritesSidebar: React.FC<FavouritesSidebarProps> = ({
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-30 z-30"
+          className="fixed inset-0 z-30 bg-black bg-opacity-30"
           onClick={onClose}
         />
       )}
