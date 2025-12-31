@@ -5,11 +5,13 @@ export const GoogleMapEmbed = ({ query, height = 400 }) => {
     ? 'h-[300px]'
     : height === 350
       ? 'h-[350px]'
-      : height === 450
-        ? 'h-[450px]'
-        : height === 500
-          ? 'h-[500px]'
-          : 'h-[400px]';
+      : height === 380
+        ? 'h-[380px]'
+        : height === 450
+          ? 'h-[450px]'
+          : height === 500
+            ? 'h-[500px]'
+            : 'h-[400px]';
 
   if (!query || query.trim() === '') {
     return (
