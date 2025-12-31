@@ -10,9 +10,13 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "date-fns": "^4.1.0",
     "react": "^18.2.0",
+    "react-datepicker": "^9.1.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0"
+    "react-router-dom": "^6.15.0",
+    "react-select": "^5.10.2",
+    "react-tabs": "^6.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.0",

@@ -1,10 +1,12 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 import { ImageGallery } from '../components/ImageGallery';
-import { TabPanel } from '../components/TabPanel';
 import { GoogleMapEmbed } from '../components/GoogleMapEmbed';
 import { useFavourites } from '../context/FavouritesContext';
 import propertiesData from '../data/properties.json';
+
+import 'react-tabs/style/react-tabs.css';
 
 export const PropertyDetailsPage = () => {
   const { propertyId } = useParams();
@@ -37,54 +39,6 @@ export const PropertyDetailsPage = () => {
       addFavourite(property);
     }
   };
-
-  const tabs = [
-    {
-      label: 'Description',
-      content: (
-        <div className="prose prose-sm max-w-none">
-          <p className="text-gray-700 leading-relaxed">
-            {property.description}
-          </p>
-          <div className="mt-6 grid grid-cols-2 gap-4">
-            <div className="bg-gray-50 p-4 rounded">
-              <p className="text-sm text-gray-600">Tenure</p>
-              <p className="font-semibold text-lg text-gray-800">{property.tenure}</p>
-            </div>
-            <div className="bg-gray-50 p-4 rounded">
-              <p className="text-sm text-gray-600">Bedrooms</p>
-              <p className="font-semibold text-lg text-gray-800">{property.bedrooms}</p>
-            </div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      label: 'Floor Plan',
-      content: (
-        <div className="flex justify-center">
-          {property.floorPlan ? (
-            <img
-              src={property.floorPlan}
-              alt={`Floor plan of ${property.location}`}
-              className="max-w-full h-auto rounded border border-gray-300"
-            />
-          ) : (
-            <p className="text-gray-600">Floor plan not available</p>
-          )}
-        </div>
-      ),
-    },
-    {
-      label: 'Location',
-      content: (
-        <div className="space-y-4">
-          <p className="text-gray-700 mb-4">{property.location}</p>
-          <GoogleMapEmbed query={property.location} height={400} />
-        </div>
-      ),
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -129,10 +83,53 @@ export const PropertyDetailsPage = () => {
           {/* Image Gallery */}
           <ImageGallery images={property.images} propertyName={property.location} />
 
-          {/* Tabs */}
-          <div className="bg-white rounded-lg shadow p-6">
-            <TabPanel tabs={tabs} />
-          </div>
+          {/* Tabs - React Tabs Library */}
+          <Tabs className="react-tabs-wrapper">
+            <TabList className="react-tablist">
+              <Tab className="react-tab">Description</Tab>
+              <Tab className="react-tab">Floor Plan</Tab>
+              <Tab className="react-tab">Location</Tab>
+            </TabList>
+
+            <TabPanel className="react-tabpanel">
+              <div className="prose prose-sm max-w-none">
+                <p className="text-gray-700 leading-relaxed">
+                  {property.description}
+                </p>
+                <div className="mt-6 grid grid-cols-2 gap-4">
+                  <div className="bg-gray-50 p-4 rounded">
+                    <p className="text-sm text-gray-600">Tenure</p>
+                    <p className="font-semibold text-lg text-gray-800">{property.tenure}</p>
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded">
+                    <p className="text-sm text-gray-600">Bedrooms</p>
+                    <p className="font-semibold text-lg text-gray-800">{property.bedrooms}</p>
+                  </div>
+                </div>
+              </div>
+            </TabPanel>
+
+            <TabPanel className="react-tabpanel">
+              <div className="flex justify-center">
+                {property.floorPlan ? (
+                  <img
+                    src={property.floorPlan}
+                    alt={`Floor plan of ${property.location}`}
+                    className="max-w-full h-auto rounded border border-gray-300"
+                  />
+                ) : (
+                  <p className="text-gray-600">Floor plan not available</p>
+                )}
+              </div>
+            </TabPanel>
+
+            <TabPanel className="react-tabpanel">
+              <div className="space-y-4">
+                <p className="text-gray-700 mb-4">{property.location}</p>
+                <GoogleMapEmbed query={property.location} height={400} />
+              </div>
+            </TabPanel>
+          </Tabs>
         </div>
       </div>
     </div>
