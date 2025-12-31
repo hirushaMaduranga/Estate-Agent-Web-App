@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 
-interface ImageGalleryProps {
-  images: string[];
-  propertyName: string;
-}
-
-export const ImageGallery: React.FC<ImageGalleryProps> = ({ images, propertyName }) => {
+export const ImageGallery = ({ images, propertyName }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isLightbox, setIsLightbox] = useState(false);
 
@@ -99,7 +94,7 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ images, propertyName
             ❯
           </button>
 
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
             {selectedIndex + 1} / {images.length}
           </div>
         </div>

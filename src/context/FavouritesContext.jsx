@@ -1,18 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Property } from '../utils/filterProperties';
 
-interface FavouritesContextType {
-  favourites: Property[];
-  addFavourite: (property: Property) => void;
-  removeFavourite: (propertyId: string) => void;
-  isFavourite: (propertyId: string) => boolean;
-  clearFavourites: () => void;
-}
+const FavouritesContext = createContext(undefined);
 
-const FavouritesContext = createContext<FavouritesContextType | undefined>(undefined);
-
-export const FavouritesProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [favourites, setFavourites] = useState<Property[]>(() => {
+export const FavouritesProvider = ({ children }) => {
+  const [favourites, setFavourites] = useState(() => {
     // Load from localStorage on init
     const saved = localStorage.getItem('favourites');
     return saved ? JSON.parse(saved) : [];
@@ -23,7 +14,7 @@ export const FavouritesProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     localStorage.setItem('favourites', JSON.stringify(favourites));
   }, [favourites]);
 
-  const addFavourite = (property: Property) => {
+  const addFavourite = (property) => {
     setFavourites((prev) => {
       // Prevent duplicates
       if (prev.some((p) => p.id === property.id)) {
@@ -33,11 +24,11 @@ export const FavouritesProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     });
   };
 
-  const removeFavourite = (propertyId: string) => {
+  const removeFavourite = (propertyId) => {
     setFavourites((prev) => prev.filter((p) => p.id !== propertyId));
   };
 
-  const isFavourite = (propertyId: string) => {
+  const isFavourite = (propertyId) => {
     return favourites.some((p) => p.id === propertyId);
   };
 
@@ -45,7 +36,7 @@ export const FavouritesProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     setFavourites([]);
   };
 
-  const value: FavouritesContextType = {
+  const value = {
     favourites,
     addFavourite,
     removeFavourite,

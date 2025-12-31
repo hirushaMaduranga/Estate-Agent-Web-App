@@ -1,19 +1,19 @@
 import React, { useState, useMemo } from 'react';
 import { SearchForm } from '../components/SearchForm';
 import { PropertyCard } from '../components/PropertyCard';
-import { filterProperties, FilterCriteria, Property } from '../utils/filterProperties';
+import { filterProperties } from '../utils/filterProperties';
 import { useFavourites } from '../context/FavouritesContext';
 import propertiesData from '../data/properties.json';
 
-export const SearchPage: React.FC = () => {
-  const [filters, setFilters] = useState<FilterCriteria>({});
-  const [draggedProperty, setDraggedProperty] = useState<Property | null>(null);
+export const SearchPage = () => {
+  const [filters, setFilters] = useState({});
+  const [draggedProperty, setDraggedProperty] = useState(null);
   const [showAdvanced, setShowAdvanced] = useState(false);
-  const [listingMode, setListingMode] = useState<'all' | 'sale' | 'rent'>('all');
+  const [listingMode, setListingMode] = useState('all');
   const { favourites, addFavourite, removeFavourite } = useFavourites();
 
   const filteredProperties = useMemo(() => {
-    let properties = filterProperties(propertiesData.properties as Property[], filters);
+    let properties = filterProperties(propertiesData.properties, filters);
     
     // Apply listing mode filter
     if (listingMode !== 'all') {
@@ -23,21 +23,21 @@ export const SearchPage: React.FC = () => {
     return properties;
   }, [filters, listingMode]);
 
-  const handleSearch = (newFilters: FilterCriteria) => {
+  const handleSearch = (newFilters) => {
     setFilters(newFilters);
   };
 
-  const handleDragStart = (e: React.DragEvent, property: Property) => {
+  const handleDragStart = (e, property) => {
     setDraggedProperty(property);
     e.dataTransfer.effectAllowed = 'copy';
   };
 
-  const handleFavoritesDragOver = (e: React.DragEvent) => {
+  const handleFavoritesDragOver = (e) => {
     e.preventDefault();
     e.dataTransfer.dropEffect = 'copy';
   };
 
-  const handleFavoritesDrop = (e: React.DragEvent) => {
+  const handleFavoritesDrop = (e) => {
     e.preventDefault();
     if (draggedProperty) {
       addFavourite(draggedProperty);
@@ -46,12 +46,12 @@ export const SearchPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 ">
       {/* Hero Section */}
       <div className="relative bg-center bg-cover hero-section hero-bg">
         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
         <div className="container relative z-10 px-4 py-20 mx-auto text-center">
-          <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">
+          <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl animate-hero-title">
             Estate Agent Property Finder - Your<br />Gateway to Homes
           </h1>
           <div className="flex flex-col items-center justify-center max-w-3xl gap-4 mx-auto md:flex-row">
@@ -134,7 +134,7 @@ export const SearchPage: React.FC = () => {
 
         {/* Favorites Section */}
         <div className="mt-16 mb-12">
-          <h2 className="mb-8 text-3xl font-bold text-center text-gray-800">Favorites</h2>
+          <h2 className="mb-8 text-3xl font-bold text-center text-gray-800 animate-section-heading">Favorites</h2>
           <div
             onDragOver={handleFavoritesDragOver}
             onDrop={handleFavoritesDrop}

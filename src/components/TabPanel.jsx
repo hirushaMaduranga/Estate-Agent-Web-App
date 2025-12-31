@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 
-interface TabPanelProps {
-  tabs: Array<{
-    label: string;
-    content: React.ReactNode;
-  }>;
-}
-
-export const TabPanel: React.FC<TabPanelProps> = ({ tabs }) => {
+export const TabPanel = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (

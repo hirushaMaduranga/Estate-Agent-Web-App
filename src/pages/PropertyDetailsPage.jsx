@@ -4,14 +4,13 @@ import { ImageGallery } from '../components/ImageGallery';
 import { TabPanel } from '../components/TabPanel';
 import { GoogleMapEmbed } from '../components/GoogleMapEmbed';
 import { useFavourites } from '../context/FavouritesContext';
-import { Property } from '../utils/filterProperties';
 import propertiesData from '../data/properties.json';
 
-export const PropertyDetailsPage: React.FC = () => {
-  const { propertyId } = useParams<{ propertyId: string }>();
+export const PropertyDetailsPage = () => {
+  const { propertyId } = useParams();
   const { isFavourite, addFavourite, removeFavourite } = useFavourites();
 
-  const property = propertiesData.properties.find((p) => p.id === propertyId) as Property | undefined;
+  const property = propertiesData.properties.find((p) => p.id === propertyId);
 
   if (!property) {
     return (
@@ -88,7 +87,7 @@ export const PropertyDetailsPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-slate-50">
       {/* Header */}
       <header className="bg-white shadow">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -103,35 +102,37 @@ export const PropertyDetailsPage: React.FC = () => {
       </header>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-8 property-details">
-        {/* Property Title & Price */}
-        <div className="bg-white rounded-lg shadow p-6 mb-8">
-          <div className="flex justify-between items-start mb-4">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-2">{property.location}</h2>
-              <p className="text-4xl font-bold text-indigo-600">£{property.price.toLocaleString()}</p>
+      <div className="max-w-6xl mx-auto px-6 py-8">
+        <div className="bg-white rounded-xl shadow-sm p-6 property-details">
+          {/* Property Title & Price */}
+          <div className="bg-white rounded-lg shadow p-6 mb-8">
+            <div className="flex justify-between items-start mb-4">
+              <div>
+                <h2 className="text-3xl font-bold text-gray-800 mb-2">{property.location}</h2>
+                <p className="text-4xl font-bold text-indigo-600">£{property.price.toLocaleString()}</p>
+              </div>
+              <button
+                onClick={handleFavouriteClick}
+                className="text-5xl hover:scale-110 transition"
+                title={favourite ? 'Remove from favourites' : 'Add to favourites'}
+              >
+                {favourite ? '❤️' : '🤍'}
+              </button>
             </div>
-            <button
-              onClick={handleFavouriteClick}
-              className="text-5xl hover:scale-110 transition"
-              title={favourite ? 'Remove from favourites' : 'Add to favourites'}
-            >
-              {favourite ? '❤️' : '🤍'}
-            </button>
+            <div className="flex gap-4 text-gray-600">
+              <span className="bg-gray-100 px-3 py-1 rounded">{property.type}</span>
+              <span className="bg-gray-100 px-3 py-1 rounded">{property.bedrooms} bedrooms</span>
+              <span className="bg-gray-100 px-3 py-1 rounded">{property.tenure}</span>
+            </div>
           </div>
-          <div className="flex gap-4 text-gray-600">
-            <span className="bg-gray-100 px-3 py-1 rounded">{property.type}</span>
-            <span className="bg-gray-100 px-3 py-1 rounded">{property.bedrooms} bedrooms</span>
-            <span className="bg-gray-100 px-3 py-1 rounded">{property.tenure}</span>
+
+          {/* Image Gallery */}
+          <ImageGallery images={property.images} propertyName={property.location} />
+
+          {/* Tabs */}
+          <div className="bg-white rounded-lg shadow p-6">
+            <TabPanel tabs={tabs} />
           </div>
-        </div>
-
-        {/* Image Gallery */}
-        <ImageGallery images={property.images} propertyName={property.location} />
-
-        {/* Tabs */}
-        <div className="bg-white rounded-lg shadow p-6">
-          <TabPanel tabs={tabs} />
         </div>
       </div>
     </div>

@@ -1,38 +1,8 @@
-export interface Property {
-  id: string;
-  type: string;
-  bedrooms: number;
-  price: number;
-  tenure: string;
-  description: string;
-  location: string;
-  picture: string;
-  images: string[];
-  floorPlan: string;
-  url: string;
-  listingType: 'sale' | 'rent';
-  lat?: number;
-  lng?: number;
-  added: { month: string; day: number; year: number };
-}
-
-export interface FilterCriteria {
-  type?: string | null;
-  minPrice?: number | null;
-  maxPrice?: number | null;
-  minBeds?: number | null;
-  maxBeds?: number | null;
-  dateAfter?: Date | null;
-  dateBetweenStart?: Date | null;
-  dateBetweenEnd?: Date | null;
-  postcodeArea?: string | null;
-}
-
 /**
  * Converts the JSON added date format { month, day, year } into a Date object
  */
-export const parseAddedDate = (added: { month: string; day: number; year: number }): Date => {
-  const monthMap: Record<string, number> = {
+export const parseAddedDate = (added) => {
+  const monthMap = {
     January: 0, February: 1, March: 2, April: 3, May: 4, June: 5,
     July: 6, August: 7, September: 8, October: 9, November: 10, December: 11
   };
@@ -49,10 +19,7 @@ export const parseAddedDate = (added: { month: string; day: number; year: number
  * Filters a list of properties based on multiple optional criteria.
  * Returns results sorted by newest date added first.
  */
-export const filterProperties = (
-  properties: Property[],
-  filters: FilterCriteria
-): Property[] => {
+export const filterProperties = (properties, filters) => {
   return properties
     .filter((property) => {
       // 1. Filter by type (case-insensitive, ignore if not provided)

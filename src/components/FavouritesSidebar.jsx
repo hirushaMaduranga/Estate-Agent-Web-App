@@ -1,14 +1,7 @@
 import React from 'react';
 import { useFavourites } from '../context/FavouritesContext';
 
-interface FavouritesSidebarProps {
-  onDragOver?: (e: React.DragEvent) => void;
-  onDrop?: (e: React.DragEvent) => void;
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-export const FavouritesSidebar: React.FC<FavouritesSidebarProps> = ({
+export const FavouritesSidebar = ({
   onDragOver,
   onDrop,
   isOpen,
@@ -16,12 +9,12 @@ export const FavouritesSidebar: React.FC<FavouritesSidebarProps> = ({
 }) => {
   const { favourites, removeFavourite, clearFavourites } = useFavourites();
 
-  const handleDragStart = (e: React.DragEvent, propertyId: string) => {
+  const handleDragStart = (e, propertyId) => {
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('propertyId', propertyId);
   };
 
-  const handleDragEnd = (e: React.DragEvent, propertyId: string) => {
+  const handleDragEnd = (e, propertyId) => {
     // If dragged outside sidebar (to the left), remove from favourites
     const sidebar = document.querySelector('.favourites-sidebar');
     if (sidebar) {

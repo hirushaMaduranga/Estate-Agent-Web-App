@@ -1,11 +1,6 @@
 import React from 'react';
 
-interface GoogleMapEmbedProps {
-  query: string;
-  height?: number;
-}
-
-export const GoogleMapEmbed: React.FC<GoogleMapEmbedProps> = ({ query, height = 400 }) => {
+export const GoogleMapEmbed = ({ query, height = 400 }) => {
   const heightClass = height === 300
     ? 'h-[300px]'
     : height === 350

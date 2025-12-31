@@ -1,15 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Property } from '../utils/filterProperties';
 import { useFavourites } from '../context/FavouritesContext';
 
-interface PropertyCardProps {
-  property: Property;
-  onDragStart?: (e: React.DragEvent, property: Property) => void;
-  draggable?: boolean;
-}
-
-export const PropertyCard: React.FC<PropertyCardProps> = ({ 
+export const PropertyCard = ({ 
   property, 
   onDragStart,
   draggable = true 
@@ -17,7 +10,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
   const { isFavourite, addFavourite, removeFavourite } = useFavourites();
   const favourite = isFavourite(property.id);
 
-  const handleFavouriteClick = (e: React.MouseEvent) => {
+  const handleFavouriteClick = (e) => {
     e.preventDefault();
     if (favourite) {
       removeFavourite(property.id);

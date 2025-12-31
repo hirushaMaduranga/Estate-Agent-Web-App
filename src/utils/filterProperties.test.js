@@ -1,7 +1,7 @@
-import { filterProperties, parseAddedDate, Property } from '../utils/filterProperties';
+import { filterProperties, parseAddedDate } from './filterProperties';
 
 describe('filterProperties', () => {
-  const mockProperties: Property[] = [
+  const mockProperties = [
     {
       id: 'prop1',
       type: 'House',
@@ -14,6 +14,7 @@ describe('filterProperties', () => {
       images: [],
       floorPlan: 'https://example.com/floorplan1.jpg',
       url: 'properties/prop1.html',
+      listingType: 'sale',
       added: { month: 'October', day: 12, year: 2022 }
     },
     {
@@ -28,6 +29,7 @@ describe('filterProperties', () => {
       images: [],
       floorPlan: 'https://example.com/floorplan2.jpg',
       url: 'properties/prop2.html',
+      listingType: 'rent',
       added: { month: 'September', day: 14, year: 2022 }
     },
     {
@@ -42,6 +44,7 @@ describe('filterProperties', () => {
       images: [],
       floorPlan: 'https://example.com/floorplan3.jpg',
       url: 'properties/prop3.html',
+      listingType: 'sale',
       added: { month: 'November', day: 5, year: 2022 }
     },
   ];

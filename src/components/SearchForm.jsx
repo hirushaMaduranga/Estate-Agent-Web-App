@@ -1,25 +1,20 @@
 import React, { useState } from 'react';
-import { FilterCriteria } from '../utils/filterProperties';
 
-interface SearchFormProps {
-  onSearch: (filters: FilterCriteria) => void;
-}
+export const SearchForm = ({ onSearch }) => {
+  const [type, setType] = useState('Any');
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
+  const [minBeds, setMinBeds] = useState('');
+  const [maxBeds, setMaxBeds] = useState('');
+  const [dateAfter, setDateAfter] = useState('');
+  const [dateBetweenStart, setDateBetweenStart] = useState('');
+  const [dateBetweenEnd, setDateBetweenEnd] = useState('');
+  const [postcodeArea, setPostcodeArea] = useState('');
 
-export const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
-  const [type, setType] = useState<string>('Any');
-  const [minPrice, setMinPrice] = useState<number | ''>('');
-  const [maxPrice, setMaxPrice] = useState<number | ''>('');
-  const [minBeds, setMinBeds] = useState<number | ''>('');
-  const [maxBeds, setMaxBeds] = useState<number | ''>('');
-  const [dateAfter, setDateAfter] = useState<string>('');
-  const [dateBetweenStart, setDateBetweenStart] = useState<string>('');
-  const [dateBetweenEnd, setDateBetweenEnd] = useState<string>('');
-  const [postcodeArea, setPostcodeArea] = useState<string>('');
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    const filters: FilterCriteria = {
+    const filters = {
       type: type !== 'Any' ? type : null,
       minPrice: minPrice !== '' ? Number(minPrice) : null,
       maxPrice: maxPrice !== '' ? Number(maxPrice) : null,

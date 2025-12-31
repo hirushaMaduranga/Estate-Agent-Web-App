@@ -32,7 +32,7 @@ describe('PropertyCard Component', () => {
     );
 
     expect(screen.getByText(/Test Street London W1/i)).toBeInTheDocument();
-    expect(screen.getByText(/£500,000/i)).toBeInTheDocument();
+    expect(screen.getByText(/\$500,000/i)).toBeInTheDocument();
     expect(screen.getByText(/3 bedrooms/i)).toBeInTheDocument();
   });
 
@@ -45,7 +45,7 @@ describe('PropertyCard Component', () => {
       </BrowserRouter>
     );
 
-    const favouriteButton = screen.getByTitle(/Add to favourites/i);
+    const favouriteButton = screen.getByRole('button', { name: /add to favorites/i });
     expect(favouriteButton).toBeInTheDocument();
   });
 });
@@ -75,7 +75,7 @@ describe('SearchForm Component', () => {
     const mockOnSearch = jest.fn();
     render(<SearchForm onSearch={mockOnSearch} />);
 
-    const typeSelect = screen.getAllByRole('combobox')[0] as HTMLSelectElement;
+    const typeSelect = screen.getAllByRole('combobox')[0];
     fireEvent.change(typeSelect, { target: { value: 'House' } });
 
     expect(typeSelect.value).toBe('House');

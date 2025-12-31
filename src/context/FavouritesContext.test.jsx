@@ -1,8 +1,7 @@
 import { renderHook, act } from '@testing-library/react';
 import { FavouritesProvider, useFavourites } from './FavouritesContext';
-import { Property } from '../utils/filterProperties';
 
-const mockProperty1: Property = {
+const mockProperty1 = {
   id: 'test1',
   type: 'House',
   bedrooms: 3,
@@ -18,7 +17,7 @@ const mockProperty1: Property = {
   added: { month: 'January', day: 1, year: 2023 }
 };
 
-const mockProperty2: Property = {
+const mockProperty2 = {
   id: 'test2',
   type: 'Flat',
   bedrooms: 2,
@@ -67,7 +66,7 @@ describe('FavouritesContext', () => {
 
     act(() => {
       result.current.addFavourite(mockProperty1);
-      result.current.addFavourite(mockProperty1); // Add same property again
+      result.current.addFavourite(mockProperty1);
     });
 
     expect(result.current.favourites).toHaveLength(1);
@@ -149,7 +148,7 @@ describe('FavouritesContext', () => {
 
     const stored = localStorage.getItem('favourites');
     expect(stored).toBeTruthy();
-    const parsed = JSON.parse(stored!);
+    const parsed = JSON.parse(stored);
     expect(parsed).toHaveLength(1);
     expect(parsed[0].id).toBe('test1');
   });
