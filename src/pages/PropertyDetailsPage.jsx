@@ -66,7 +66,7 @@ export const PropertyDetailsPage = () => {
                   {property.location}
                 </h2>
                 <p className="mb-4 text-4xl font-extrabold text-indigo-600 sm:text-5xl">
-                  £{property.price.toLocaleString()}
+                  ${property.price.toLocaleString()}
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <span className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-full shadow-sm">
@@ -154,7 +154,21 @@ export const PropertyDetailsPage = () => {
                         alt={`Floor plan of ${property.location}`}
                         className="w-full h-auto border border-gray-200 shadow-md rounded-xl"
                         style={{ maxHeight: '600px', objectFit: 'contain' }}
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'block';
+                        }}
                       />
+                      <div 
+                        className="items-center justify-center hidden p-12 text-center bg-gray-50 rounded-xl"
+                      >
+                        <div>
+                          <svg className="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          <p className="text-lg font-medium text-gray-600">Floor plan image not available</p>
+                        </div>
+                      </div>
                     </div>
                   ) : (
                     <div className="flex items-center justify-center p-12 text-center bg-gray-50 rounded-xl">
