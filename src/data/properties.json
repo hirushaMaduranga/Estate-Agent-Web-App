@@ -148,7 +148,7 @@
       "tenure": "Leasehold",
       "description": "Spacious three-bedroom penthouse apartment with panoramic city views from the private terrace. Features include a luxury fitted kitchen, three ensuite bedrooms, media room, wine fridge, and access to an exclusive rooftop garden. Located in a prestigious development with concierge, gym facilities, and secure parking.",
       "location": "Park Avenue Manchester M15",
-      "picture": "/images/properties/2.jpg",
+      "picture": "https://res.cloudinary.com/dqsutznxk/image/upload/v1767549432/2_feldaz.jpg",
       "images": [
         "/public/images/thumbnails/house2.8.jpeg",
         "/public/images/thumbnails/house2.7.jpeg",
@@ -176,7 +176,7 @@
       "tenure": "Freehold",
       "description": "Charming two-bedroom cottage with character features in a desirable village location. Recently refurbished with new kitchen and bathroom, the property benefits from exposed beams, window seats, and a cosy fireplace. The cottage features a fully enclosed garden with patio area, perfect for entertaining. Close to schools, shops, and excellent transport links.",
       "location": "The Green Cambridge CB1",
-      "picture": "/images/properties/1.jpg",
+      "picture": "https://res.cloudinary.com/dqsutznxk/image/upload/v1767548429/1_pws4e9.jpg",
       "images": [
         "/public/images/thumbnails/house1.8.jpeg",
         "/public/images/thumbnails/house1.7.jpeg",
