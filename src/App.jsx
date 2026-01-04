@@ -6,7 +6,8 @@ import { PropertyDetailsPage } from './pages/PropertyDetailsPage';
 function App() {
   return (
     <FavouritesProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
+
         <Routes>
           <Route path="/" element={<SearchPage />} />
           <Route path="/property/:propertyId" element={<PropertyDetailsPage />} />
