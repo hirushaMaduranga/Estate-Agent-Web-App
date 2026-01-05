@@ -207,3 +207,9 @@ MIT
 ## Author
 
 Built with ❤️ for the Modern Web
+
+## Links
+
+- **GitHub Repository:** https://github.com/hirushaMaduranga/Estate-Agent-Web-App.git
+- **Live Demo (GitHub Pages):** https://hirushamaduranga.github.io/Estate-Agent-Web-App/
+
